@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Alces Cluster Start Page</title>
+  <link href="/stylesheets/cirrus.css" media="screen" rel="stylesheet" type="text/css" /> 
+</head>
+<body>
+<div id="header">
+  <a href="http://www.alces-software.com/" target="_blank">
+  <img id="logo" src="alces.png" alt="logo" height="100px"/>
+  </a>
+  <center><h3>Cluster Management Start Page</h3></center>
+</div>
+<div id="body">
+  <div class="content"> 
+  <h4>Software</h4>
+  <table>
+    <tr>
+      <th></th>
+      <th>Redirect</th>
+    </tr>
+    <tr><td>Cobbler (deployment)</td><td><a href="/cobbler/web/" target="_blank">Go to management</a></td></tr>
+    <tr><td>Ganglia (performance monitoring)</td><td><a href="/ganglia/" target="_blank">Go to management</a></td></tr>
+    <tr><td>Nagios (availability monitoring)</td><td><a href="/nagios/" target="_blank">Go to management</a></td></tr>
+  </table>
+  <center>
+    <img id="graph" src="/ganglia/graph.php?g=load_report&z=medium&m=load_one&r=hour&s=descending&hc=4&mc=2&st=1294320477" alt="Can't load cluster usage graph"/>
+  </center><br/>
+  <h4>Hardware</h4>
+  <table>
+    <tr>
+      <th></th>
+      <th>Redirect</th>
+    </tr>
+    <tr><td>Management Switch 1</td><td><a href="http://mansw1">Go to management</a></td></tr>
+    <tr><td>Private Stack 01</td><td><a href="http://stack01">Go to management</a></td></tr>
+    <tr><td>Headnode 1 Remote Management</td><td><a href="http://headnode1.bmc" target="_blank">Go to management</a></td></tr>
+    <tr><td>Rack 1 PDU1</td><td><a href="http://r1pdu1" target="_blank">Go to management</a></td></tr>
+  </table>
+  <h4>Compute Nodes</h4>
+  <table>
+    <tr>
+      <th></th>
+      <th>Redirect</th>
+      <tr><td>node001 Remote Management</td><td><a href="http://node001.bmc" target="_blank">Go to management</a></td></tr>
+    </tr>
+  </table>
+  </div>
+</div>
+<div id='footer'>
+<p>Alces Software HPC Stack For Linux | Copyright (C) 2008-2011 Alces Software Ltd</p>
+</div>
+</body>
+</html>

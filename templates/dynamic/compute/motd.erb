@@ -1,0 +1,28 @@
+<%
+distro_string=(
+  case @operatingsystem
+    when /centos.*/i
+      "Based on CentOS #{@operatingsystemrelease}"
+    when /scientific.*/i
+      "Based on Scientific Linux #{@operatingsystemrelease}"
+    when /redhat.*/i
+      "Based on RedHat Enterprise Linux #{@operatingsystemrelease}"
+    when /suse.*/i
+      "Based on Suse Linux Enterprise Server #{@operatingsystemrelease}"
+  else
+    "Based on GNU Linux"
+  end
+)
+%>
+              +++++++++++++++++++++++++++++++++++++++++++++
+              <%="Welcome to #{@clustername}".center(45)%>
+              <%= distro_string.center(45) %>
+              +++++++++++++++++++++++++++++++++++++++++++++
+
+TIPS:
+
+'module avail'            - show available application environments
+'module add <modulename>' - add a module to your current environment
+
+'qstat'                   - show summary of running jobs
+

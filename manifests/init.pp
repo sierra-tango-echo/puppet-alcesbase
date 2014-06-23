@@ -15,7 +15,7 @@ class alcesbase (
   $role = hiera('alcesbase::role','slave'),
   #Supported machines
   # - generic
-  $machine = hiera('alcesbase::machine','generic'),
+  $machine = hiera('alcesbase::machine',$alces_machine),
   #Cluster name:
   $clustername = hiera('alcesbase::clustername','alcescluster'),
   #Master IP (network services master IP addr)
@@ -23,11 +23,35 @@ class alcesbase (
   #Master alias (network services master Alias)
   $master_alias = hiera('alcesbase::masteralias'),
   #HA (ha enabled?)
-  $ha = hiera('alcesbase::ha',false)
+  $ha = hiera('alcesbase::ha',false),
+  #Keep os jitter minimal
+  $jitter=hiera('alcesbase::jitter',true),
+
 )
 {
+  #For configure
+  $vgl=hiera('alcesbase::vgl',false)
+
+  validate_re($role, [ 'master', 'slave' ])
+  if empty($machine) { fail 'no machine set' }
+
+  #secondary variables
+  if empty($clustername) { fail "empty parameter" }
+
+
+  #Base setup
+  class { 'alcesbase::base':
+    nvidia=>hiera('alcesbase::nvidia',false),
+    serialconsoledevice=>hiera('alcesbase::serialconsoledevice',undef),
+    serialconsolebaud=>hiera('alcesbase::serialconsolebaud',undef),
+  }
   #Configure Alces Home
   class { 'alcesbase::home':
+
+  }
+
+  class { 'alcesbase::gpu':
+    nvidia=>hiera('alcesbase::nvidia',false),
   }
 
 }

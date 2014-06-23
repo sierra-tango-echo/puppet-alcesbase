@@ -1,0 +1,14 @@
+#MASTER
+<%=@alces_hostname%> master
+
+#MASTERS
+headnode[1-2]           headnodes,masters,cluster,all
+
+#LOGIN
+login[1-2]                              login,logins,cluster,all
+
+#STORAGE
+nfs[001-002]                            nfs,storage,cluster,all
+
+#COMPUTES
+node[01-16]                             rack1,nodes,compute,cluster,all

@@ -1,0 +1,16 @@
+Section "ServerLayout"
+  Identifier "Alces VirtualGL"
+  Screen 0 "screen0" 0 0
+EndSection
+
+Section "Device"
+  Identifier  "nv0"
+  Driver "nvidia"
+  BusID "PCI:4:0:0"
+EndSection
+
+Section "Screen"
+  Identifier "screen0"
+  Device "nv0"
+  Option "ConnectedMonitor" "CRT-0"
+EndSection

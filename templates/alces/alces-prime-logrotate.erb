@@ -1,0 +1,10 @@
+# Rotate Alces Prime application logs
+/var/log/alces/alces-prime/*.log {
+  daily
+  missingok
+  rotate 7
+  compress
+  delaycompress
+  notifempty
+  copytruncate
+}

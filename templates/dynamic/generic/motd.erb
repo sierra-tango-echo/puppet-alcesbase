@@ -1,0 +1,22 @@
+<%
+distro_string=(
+  case @operatingsystem
+    when /centos.*/i
+      "Based on CentOS #{@operatingsystemrelease}"
+    when /scientific.*/i
+      "Based on Scientific Linux #{@operatingsystemrelease}"
+    when /redhat.*/i
+      "Based on RedHat Enterprise Linux #{@operatingsystemrelease}"
+    when /suse.*/i
+      "Based on Suse Linux Enterprise Server #{@operatingsystemrelease}"
+  else
+    "Based on GNU Linux"
+  end
+)
+%>
+              +++++++++++++++++++++++++++++++++++++++++++++
+              <%="Welcome to #{@clustername.to_s.capitalize}".center(45)%>
+              <%= distro_string.center(45) %>
+              +++++++++++++++++++++++++++++++++++++++++++++
+
+

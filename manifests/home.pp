@@ -21,7 +21,7 @@ class alcesbase::home
     ensure=>directory,
     owner=>'alces',
     group=>'alces',
-    mode=>'0750',
+    mode=>'0751',
     require=>User['alces'],
   }
   file {'/var/lib/alces/bin':
