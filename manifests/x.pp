@@ -10,7 +10,7 @@ class alcesbase::x (
 )
 {
   if $x {
-    package { ["control-center", "dbus", "gdm", "gdm-user-switch-applet", "gnome-panel", "gnome-screensaver", "gnome-session", "gnome-terminal", "metacity", "nautilus", "notification-daemon", "polkit-gnome"]:
+    package { ["control-center", "dbus", "gdm", "gdm-user-switch-applet", "gnome-panel", "gnome-screensaver", "gnome-session", "gnome-terminal", "metacity", "nautilus", "notification-daemon", "polkit-gnome","xorg-x11-fonts-75dpi"]:
       ensure=>installed,
     }
     #exec { 'yum Group Install':

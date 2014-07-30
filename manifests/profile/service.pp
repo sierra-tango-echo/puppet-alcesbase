@@ -29,6 +29,7 @@ class alcesbase::profile::service (
   class { 'alcesservices':
            role=>$role,
            profile=>$profile,
+           machine=>$alces_machine,
 	   stage=>configure,
   }
   class { 'alcesmonitoring':
@@ -36,5 +37,11 @@ class alcesbase::profile::service (
                 profile=>$profile,
                 machine=>$alces_machine,
                 stage=>configure,
+  }
+  class { 'alceshpc':
+          role=>$role,
+          profile=>$profile,
+          machine=>$alces_machine,
+          stage=>configure,
   }
 }

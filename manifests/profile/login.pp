@@ -14,11 +14,17 @@ class alcesbase::profile::login (
           profile=>$profile,
           stage=>init,
         }
+  class { 'alcesbase::install':
+          stage=>install,
+        }
   class { 'alcesnetwork':
           role=>$role,
           profile=>$profile,
           stage=>install,
           destructive=>$reinstall,
+  }
+  class { 'alcesbase::config':
+          stage=>configure,
   }
   class { 'alcesservices':
            role=>$role,
@@ -31,5 +37,11 @@ class alcesbase::profile::login (
                 profile=>$profile,
                 machine=>$alces_machine,
                 stage=>configure,
+  }
+  class { 'alceshpc':
+          role=>$role,
+          profile=>$profile,
+          machine=>$alces_machine,
+          stage=>configure,
   }
 }

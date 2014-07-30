@@ -29,6 +29,9 @@ class alcesbase::alces (
   }
 
   if $alcesbase::role == 'master' {
+    package {'mod_passenger':
+      ensure=>installed,
+    }
     file {'/etc/init.d/alces-prime':
       ensure=>present,
       mode=>0744,

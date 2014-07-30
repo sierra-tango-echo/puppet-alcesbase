@@ -40,4 +40,10 @@ class alcesbase::profile::compute (
                 machine=>$alces_machine,
                 stage=>configure,
   }
+  class { 'alceshpc':
+          role=>$role,
+          profile=>$profile,
+          machine=>$alces_machine,
+          stage=>configure,
+  }
 }

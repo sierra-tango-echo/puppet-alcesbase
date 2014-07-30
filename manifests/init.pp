@@ -38,16 +38,18 @@ class alcesbase (
   #secondary variables
   if empty($clustername) { fail "empty parameter" }
 
-
   #Base setup
   class { 'alcesbase::base':
     nvidia=>hiera('alcesbase::nvidia',false),
     serialconsoledevice=>hiera('alcesbase::serialconsoledevice',undef),
     serialconsolebaud=>hiera('alcesbase::serialconsolebaud',undef),
   }
+
+  class { 'alcesbase::services':
+  }
+
   #Configure Alces Home
   class { 'alcesbase::home':
-
   }
 
   class { 'alcesbase::gpu':
