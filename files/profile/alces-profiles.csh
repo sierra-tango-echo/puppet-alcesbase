@@ -22,9 +22,9 @@
 # http://www.alces-software.org/                                               #
 #                                                                              #
 ################################################################################
-if ( -d /opt/alces/etc/profile.d ) then
+if ( -d /var/lib/alces/nodeware/etc/profile.d ) then
         set nonomatch
-        foreach i ( /opt/alces/etc/profile.d/*.csh )
+        foreach i ( /var/lib/alces/nodeware/etc/profile.d/*.csh )
                 if ( -r "$i" ) then
 	                        if ($?prompt) then
 	                              source "$i"
