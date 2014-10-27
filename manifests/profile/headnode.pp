@@ -22,22 +22,16 @@ class alcesbase::profile::headnode (
   class { 'alcesbase::config':
           stage=>configure,
   }
-#  class { 'alcesservices':
-#           role=>$role,
-#           profile=>$profile,
-#           machine=>$alces_machine,
-#           stage=>configure,
-#  }
-#  class { 'alcesmonitoring':
-#                role=>$role,
-#                profile=>$profile,
-#                machine=>$alces_machine,
-#                stage=>configure,
-#  }
-#  class { 'alceshpc':
-#          role=>$role,
-#          profile=>$profile,
-#          machine=>$alces_machine,
-#          stage=>configure,
-#  }
+  class { 'alcesservices':
+           role=>$role,
+           profile=>$profile,
+           machine=>$alces_machine,
+           stage=>configure,
+  }
+  class { 'alceshpc':
+          role=>$role,
+          profile=>$profile,
+          machine=>$alces_machine,
+          stage=>configure,
+  }
 }

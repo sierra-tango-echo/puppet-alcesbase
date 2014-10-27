@@ -40,6 +40,8 @@ if (! $?MODULEPATH ) then
   setenv MODULEPATH `sed -n 's/[ 	#].*$//; /./H; $ { x; s/^\n//; s/\n/:/g; p; }' ${MODULESHOME}/init/.modulespath`
 endif
 
+setenv MODULEPATH $MODULEPATH:/opt/service/etc/modules:/opt/apps/etc/modules/
+
 if (! $?LOADEDMODULES ) then
   setenv LOADEDMODULES ""
 endif

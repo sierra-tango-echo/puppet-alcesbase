@@ -17,12 +17,6 @@ class alcesbase::profile::login (
   class { 'alcesbase::install':
           stage=>install,
         }
-  class { 'alcesnetwork':
-          role=>$role,
-          profile=>$profile,
-          stage=>install,
-          destructive=>$reinstall,
-  }
   class { 'alcesbase::config':
           stage=>configure,
   }
@@ -31,12 +25,6 @@ class alcesbase::profile::login (
            profile=>$profile,
            machine=>$alces_machine,
            stage=>configure,
-  }
-  class { 'alcesmonitoring':
-                role=>$role,
-                profile=>$profile,
-                machine=>$alces_machine,
-                stage=>configure,
   }
   class { 'alceshpc':
           role=>$role,

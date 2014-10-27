@@ -16,3 +16,5 @@ export PATH
 if [ -f ~/.modules ]; then
   source ~/.modules
 fi
+
+export MODULEPATH=$MODULEPATH:/opt/service/etc/modules:/opt/apps/etc/modules/
