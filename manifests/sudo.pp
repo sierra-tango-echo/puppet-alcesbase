@@ -8,22 +8,11 @@ class alcesbase::sudo (
   
 )
 {
-  $sudo_template=multitemplate(
-            "alcesbase/dynamic/$alcesbase::machine/sudoers.erb",
-            "alcesbase/dynamic/$alcesbase::profile/sudoers.erb",
-            "alcesbase/dynamic/$alcesbase::role/sudoers.erb",
-            "alcesbase/dynamic/generic/sudoers.erb")
-
+  file_line {'alces-to-sudoers':
+      path => '/etc/sudoers',
+      line => "alces           ALL=(ALL)      NOPASSWD: ALL",
+  }
   package {'sudo':
     ensure=>installed
-  }
-
-  file {'/etc/sudoers':
-    ensure=>present,
-    mode=>0440,
-    owner=>'root',
-    group=>'root',
-    content=>$sudo_template,
-    require=>Package['sudo'],
   }
 }

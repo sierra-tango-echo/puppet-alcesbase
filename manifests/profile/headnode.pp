@@ -8,7 +8,9 @@ class alcesbase::profile::headnode (
   $role,
 ) inherits ::alcesbase::profile
 {
+
   $profile='headnode'
+
   class { 'alcesbase':
           role=>$role,
           profile=>$profile,
@@ -17,31 +19,25 @@ class alcesbase::profile::headnode (
   class { 'alcesbase::install':
           stage=>install,
         }
-  class { 'alcesnetwork':
-          role=>$role,
-          profile=>$profile,
-          stage=>install,
-          destructive=>$reinstall,
-  }
   class { 'alcesbase::config':
           stage=>configure,
   }
-  class { 'alcesservices':
-           role=>$role,
-           profile=>$profile,
-           machine=>$alces_machine,
-           stage=>configure,
-  }
-  class { 'alcesmonitoring':
-                role=>$role,
-                profile=>$profile,
-                machine=>$alces_machine,
-                stage=>configure,
-  }
-  class { 'alceshpc':
-          role=>$role,
-          profile=>$profile,
-          machine=>$alces_machine,
-          stage=>configure,
-  }
+#  class { 'alcesservices':
+#           role=>$role,
+#           profile=>$profile,
+#           machine=>$alces_machine,
+#           stage=>configure,
+#  }
+#  class { 'alcesmonitoring':
+#                role=>$role,
+#                profile=>$profile,
+#                machine=>$alces_machine,
+#                stage=>configure,
+#  }
+#  class { 'alceshpc':
+#          role=>$role,
+#          profile=>$profile,
+#          machine=>$alces_machine,
+#          stage=>configure,
+#  }
 }

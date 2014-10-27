@@ -54,22 +54,6 @@ class alcesbase::base (
     }
   }
 
-  package {'pdsh':
-    ensure=>installed,
-  }
-  package {'pdsh-rcmd-ssh':
-    ensure=>installed,
-  }
-  package {'pdsh-mod-genders':
-    ensure=>installed,
-  }
-  package {'genders':
-    ensure=>installed,
-  }
-  package {'genders-compat':
-    ensure=>installed,
-  }
-
   #PDSH
   file {'/etc/genders':
       mode=>0644,
@@ -77,7 +61,6 @@ class alcesbase::base (
       group=>'root',
       ensure=>present,
       content=>template('alcesbase/genders.erb'),
-      require=>Package['pdsh-mod-genders']
   }
 
   #Serial console
@@ -89,7 +72,7 @@ class alcesbase::base (
       mode=>0644,
       owner=>'root',
       group=>'root',
-      content=>template('alcesservices/alces_serial.erb')
+      content=>template('alcesbase/alces_serial.erb')
     }
   } 
 }
