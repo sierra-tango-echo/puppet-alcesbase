@@ -22,8 +22,8 @@
 # http://www.alces-software.org/                                               #
 #                                                                              #
 ################################################################################
-if [ -d /var/lib/alces/nodeware/etc/profile.d ]; then
-    for i in /var/lib/alces/nodeware/etc/profile.d/*.sh ; do
+if [ -d /opt/clusterware/etc/profile.d ]; then
+    for i in /opt/clusterware/etc/profile.d/*.sh ; do
 	if [ -r "$i" ]; then
             if [ "${-#*i}" != "$-" ]; then
 		. "$i"
