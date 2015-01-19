@@ -60,6 +60,7 @@ class alcesbase::base (
       owner=>'root',
       group=>'root',
       ensure=>present,
+      replace=>false,
       content=>template('alcesbase/genders.erb'),
   }
 
