@@ -1,9 +1,0 @@
-# alces serial console starter
-
-#start on runlevel [2345]
-stop on runlevel [S016]
-
-respawn
-instance <%=@serialconsole_device.to_s.gsub(/^\/dev\//,'')%>
-pre-start exec /sbin/securetty <%=@serialconsole_device.to_s.gsub(/^\/dev\//,'')%>
-exec /sbin/agetty -L -f /etc/issue <%=@serialconsole_device%> <%=@serialconsole_baud%> vt100-nav

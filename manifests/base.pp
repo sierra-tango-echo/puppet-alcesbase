@@ -63,17 +63,4 @@ class alcesbase::base (
       replace=>false,
       content=>template('alcesbase/genders.erb'),
   }
-
-  #Serial console
-  if ($serialconsoledevice) and ($serialconsolebaud) {
-    $serialconsole_device=$serialconsoledevice
-    $serialconsole_baud=$serialconsolebaud
-    file {'/etc/init/alces_serial.conf':
-      ensure=>present,
-      mode=>0644,
-      owner=>'root',
-      group=>'root',
-      content=>template('alcesbase/alces_serial.erb')
-    }
-  } 
 }

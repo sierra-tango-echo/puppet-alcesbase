@@ -37,8 +37,6 @@ class alcesbase (
   #Base setup
   class { 'alcesbase::base':
     nvidia=>hiera('alcesbase::nvidia',false),
-    serialconsoledevice=>hiera('alcesbase::serialconsoledevice',undef),
-    serialconsolebaud=>hiera('alcesbase::serialconsolebaud',undef),
   }
 
   class { 'alcesbase::services':
