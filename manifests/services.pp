@@ -21,25 +21,25 @@ class alcesbase::services (
     'login': {
       if str2bool($is_virtual) {
         $enable_services=[]
-        $disable_services=['cpuspeed','kdump','autofs','iptables','ip6tables']
+        $disable_services=['cpuspeed','kdump','autofs']
       } else {
         $enable_services=[]
-        $disable_services=['kdump','autofs','cpuspeed','iptables','ip6tables']
+        $disable_services=['kdump','autofs','cpuspeed']
       }
     }
     'storage': {
       if str2bool($is_virtual) {
         $enable_services=[]
-        $disable_services=['cpuspeed','kdump','autofs','iptables','ip6tables']
+        $disable_services=['cpuspeed','kdump','autofs']
       } else {
         $enable_services=['kdump']
-        $disable_services=['autofs','cpuspeed','iptables','ip6tables']
+        $disable_services=['autofs','cpuspeed']
       }
     }
     'headnode': {
       if str2bool($is_virtual) {
         $enable_services=[]
-        $disable_services=['cpuspeed','kdump','autofs','bluetooth','iptables','ip6tables']
+        $disable_services=['cpuspeed','kdump','autofs','bluetooth']
       } else {
         $enable_services=['kdump','cpuspeed']
         $disable_services=['autofs','bluetooth','iptables','ip6tables']
@@ -48,19 +48,19 @@ class alcesbase::services (
     'service': {
     if str2bool($is_virtual) {
         $enable_services=[]
-        $disable_services=['cpuspeed','kdump','autofs','bluetooth','iptables','ip6tables']
+        $disable_services=['cpuspeed','kdump','autofs','bluetooth']
       } else {
         $enable_services=['kdump','cpuspeed']
-        $disable_services=['autofs','bluetooth','iptables','ip6tables']
+        $disable_services=['autofs','bluetooth']
       }
     }
     'generic': {
     if str2bool($is_virtual) {
         $enable_services=[]
-        $disable_services=['cpuspeed','kdump','autofs','bluetooth','iptables','ip6tables']
+        $disable_services=['cpuspeed','kdump','autofs','bluetooth']
       } else {
         $enable_services=['kdump','cpuspeed']
-        $disable_services=['autofs','bluetooth','iptables','ip6tables']
+        $disable_services=['autofs','bluetooth']
       }
     }
     default: {
